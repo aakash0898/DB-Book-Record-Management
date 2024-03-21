@@ -1,6 +1,6 @@
 const { UserModel, BookModel } = require("../models");
 // const issuedBook = require("../dtos/book-dto.js");
-const IssuedBook = require("../dtos/book-dto");
+const IssuedBook = require("../dtos/book-dto.js");
 
 // const getAllBooks = () => {};
 exports.getAllBooks = async (req, res) => {
@@ -18,6 +18,7 @@ exports.getAllBooks = async (req, res) => {
     data: books,
   });
 };
+
 
 exports.getSingleBookById = async (req, res) => {
   const { id } = req.params;
@@ -58,7 +59,6 @@ exports.getAllIssuedBooks = async (req, res) => {
   });
 };
 
-
 exports.addNewBook = async (req, res) => {
   const { data } = req.body;
 
@@ -82,6 +82,7 @@ exports.addNewBook = async (req, res) => {
 exports.updateBookById = async (req, res) => {
   const { id } = req.params;
   const { data } = req.body;
+
 
   const updatedBook = await BookModel.findOneAndUpdate(
     {
